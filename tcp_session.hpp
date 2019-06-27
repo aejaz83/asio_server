@@ -8,7 +8,7 @@
 #include <array>
 #include <memory>
 
-class Tcp_Session std::enable_shared_from_this<Tcp_Session> {
+class Tcp_Session : public std::enable_shared_from_this<Tcp_Session> {
 public:
 	Tcp_Session( boost::asio::io_context& );
 	boost::asio::ip::tcp::socket& get_socket();
