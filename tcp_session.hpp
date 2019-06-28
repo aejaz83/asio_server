@@ -14,6 +14,7 @@ public:
 	boost::asio::ip::tcp::socket& get_socket();
 	void wait_for_receive();
 private:
+	void start_send();
 	boost::asio::ip::tcp::socket socket_;
 	std::array<char, 2048> receive_buffer_;
 	
