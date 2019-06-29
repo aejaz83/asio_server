@@ -1,3 +1,8 @@
+/*
+ * Author: Aehjaj Ahmed P
+ * Date: 26-June-2019
+*/ 
+
 #include <iostream>
 #include <string>
 #include <boost/asio.hpp>
@@ -34,7 +39,7 @@ void Tcp_Session::wait_for_receive(){
 void Tcp_Session::start_send(){
     std::string message = "Hellow from Server";
     auto session_ptr = shared_from_this();
-   async_write (socket_, buffer(message),
+    async_write (socket_, buffer(message),
         [session_ptr](const boost::system::error_code& ec, size_t sz){
 
         }); 
