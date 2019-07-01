@@ -9,9 +9,9 @@
 int main(int argc, char const *argv[])
 {
 	try{
-		boost::asio::io_service io_service;
-		Tcp_Server server(io_service,8989);
-		io_service.run();
+		boost::asio::io_context io_context;
+		Tcp_Server server(io_context,8989);
+		io_context.run();
 
 	} catch (std::exception& ex){
 		std::cerr << "Exception in main: " << ex.what() << std::endl;

@@ -1,0 +1,7 @@
+
+*.o
+*.bin
+*.ipch
+.vscode/settings.json
+tcp_server
+tcp_client

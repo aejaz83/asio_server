@@ -27,6 +27,7 @@ void Tcp_Server::wait_for_connection(){
 			if(ec){
 				std::cerr << "Failed to accept connection: " << ec.message() << std::endl;
 			} else {
+				std::cout << "Successfully received connection calling connection->wait_for_receive\n" ;
 				connection->wait_for_receive();
 				wait_for_connection();
 			}

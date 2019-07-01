@@ -17,6 +17,7 @@ private:
 	void start_send();
 	boost::asio::ip::tcp::socket socket_;
 	std::array<char, 2048> receive_buffer_;
+	std::string response_ = "OK";
 	
 };
 #endif
