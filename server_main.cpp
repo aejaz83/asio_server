@@ -9,8 +9,20 @@
 int main(int argc, char const *argv[])
 {
 	try{
+		if(argc != 2){
+			std::cerr << "Usage: tcp_server <port>\n";
+			return 1;
+		}
+		std::stringstream ss(argv[1]);
+		int port;
+		if( ss >> port){
+			std::cout << "port number of the server: " << port << std::endl;
+		}else{
+			std::cerr << "Invalid port specified, port is not an integer\n";
+			return 2;
+		}
 		boost::asio::io_context io_context;
-		Tcp_Server server(io_context,8989);
+		Tcp_Server server(io_context, port);
 		io_context.run();
 
 	} catch (std::exception& ex){
