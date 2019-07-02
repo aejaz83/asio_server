@@ -49,9 +49,10 @@ void Tcp_Client::read(){
     async_read( socket_, buffer(read_buf_,2),
         [this](const boost::system::error_code& ec, size_t byte_size){
             if (!ec || ec == error::eof) {
-               std::cout.write(this->read_buf_.data(), byte_size);
+               //std::cout.write(this->read_buf_.data(), byte_size);
                //parse the data
-               parser->parse(read_buf_,byte_size);
+               // parser->parse(read_buf_,byte_size);
+               io_context_.dispatch(std::bind(&Parser::parse, parser.get(), read_buf_, byte_size));
                socket_.close();
             } else {
                 std::cerr << "Error receiving data from server: " << ec.message() << "\n";

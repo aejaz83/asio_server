@@ -15,7 +15,6 @@ class Tcp_Client{
 public:
     Tcp_Client(boost::asio::io_context& io_context,
                const boost::asio::ip::tcp::resolver::results_type& endpoints);
-
 private:
     void connect(const boost::asio::ip::tcp::resolver::results_type& endpoints);
     void read();
