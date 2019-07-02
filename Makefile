@@ -1,6 +1,6 @@
 CC=g++
-CPPFLAGS=-I/home/aehjaj/boost_1_70_0 -std=c++11
-DEPS = tcp_server.hpp tcp_session.hpp tcp_client.hpp
+CPPFLAGS=-I/home/aehjaj/boost_1_70_0 -std=c++14
+DEPS = tcp_server.hpp tcp_session.hpp tcp_client.hpp parser.hpp
 OBJ = tcp_server.o tcp_session.o server_main.o
 LINKERFLAGS = -pthread
 OBJ_CLIENT = tcp_client.o client_main.o

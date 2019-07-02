@@ -7,7 +7,9 @@
 
 #include <boost/asio.hpp>
 #include <array>
+#include <memory>
 #include <string>
+#include "parser.hpp"
 
 class Tcp_Client{
 public:
@@ -21,7 +23,8 @@ private:
 
     boost::asio::io_context& io_context_;
     boost::asio::ip::tcp::socket socket_;
-    std::array<char, 2048> read_buf_;
+    std::unique_ptr<Parser> parser;
+    std::array<char, 256> read_buf_;
     std::string write_buf_ = "Hello World";
 };
 #endif
