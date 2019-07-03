@@ -1,21 +1,12 @@
-CC=g++
-CPPFLAGS=-I/home/aehjaj/boost_1_70_0 -std=c++14
-DEPS = tcp_server.hpp tcp_session.hpp tcp_client.hpp parser.hpp
-OBJ = tcp_server.o tcp_session.o server_main.o
-LINKERFLAGS = -pthread
-OBJ_CLIENT = tcp_client.o client_main.o
-%.o: %.cpp $(DEPS)
-	$(CC) -c -o $@ $< $(CPPFLAGS)
-
 all: tcp_client tcp_server	
 
-tcp_server: $(OBJ)
-	$(CC) -o $@ $^ $(LINKERFLAGS)
+tcp_server:
+	$(MAKE) -C server
 
-tcp_client: $(OBJ_CLIENT)
-	$(CC) -o $@ $^ $(LINKERFLAGS)
-
+tcp_client:
+	$(MAKE) -C client
 
 
 clean:
-	rm -rf *.o tcp_server tcp_client		
+	rm -rf client/*.o client/tcp_client		
+	rm -rf server/*.o server/tcp_server		
