@@ -1,0 +1,9 @@
+This code implements tcp server and client using boost asio.
+Asynchronous apis and event mechanism of the boost asio is used.
+
+This code is built on :
+    1. Ubuntu system running Linux kernel 4.13.0-46-generic.
+    2. g++/gcc version 7.2.0 (Ubuntu 7.2.0-8ubuntu3.2)
+    3. boost Version 1.70.0
+    4. GNU Make 4.1
+

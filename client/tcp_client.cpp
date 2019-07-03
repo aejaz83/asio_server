@@ -11,7 +11,7 @@ Tcp_Client::Tcp_Client(io_context& io_context,
                const ip::tcp::resolver::results_type& endpoints) 
                : io_context_(io_context),
                  socket_(io_context),
-                 parser(std::make_unique<CoutParser>()){
+                 parser_(std::make_unique<CoutParser>()){
     connect(endpoints);
 }
 
@@ -30,6 +30,8 @@ void Tcp_Client::connect(const ip::tcp::resolver::results_type& endpoints){
 }
 
 void Tcp_Client::write(){
+    //Ideally we should first write the header which includes the number of bytes 
+    // and then send the message.
     async_write(socket_, buffer(write_buf_, 11),
     [this](const boost::system::error_code& ec, std::size_t write_length){
         if(!ec){
@@ -46,13 +48,12 @@ void Tcp_Client::write(){
 
 void Tcp_Client::read(){
     std::cout << "Inside Tcp_Client::read() \n";
+    //Ideally we should read the header first and then the message.
     async_read( socket_, buffer(read_buf_,2),
         [this](const boost::system::error_code& ec, size_t byte_size){
             if (!ec || ec == error::eof) {
-               //std::cout.write(this->read_buf_.data(), byte_size);
-               //parse the data
-               // parser->parse(read_buf_,byte_size);
-               io_context_.dispatch(std::bind(&Parser::parse, parser.get(), read_buf_, byte_size));
+               //Add the parse function in the event queue to be processed asynchronously
+               io_context_.dispatch(std::bind(&Parser::parse, parser_.get(), read_buf_, byte_size));
                socket_.close();
             } else {
                 std::cerr << "Error receiving data from server: " << ec.message() << "\n";

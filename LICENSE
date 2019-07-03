@@ -1,0 +1,11 @@
+This code is licensed under boost license shown below, while developing client and server
+source code in https://www.boost.org/doc/libs/1_66_0/doc/html/boost_asio/examples/cpp11_examples.html
+was referred.
+
+
+//
+// Copyright (c) 2003-2019 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+//
+// Distributed under the Boost Software License, Version 1.0. (See accompanying
+// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+//
