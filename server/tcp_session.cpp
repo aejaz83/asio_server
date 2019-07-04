@@ -19,9 +19,12 @@ ip::tcp::socket& Tcp_Session::get_socket(){
     return socket_;
 }
 
-
 void Tcp_Session::wait_for_receive(){
+    // here we have async calls , so in order to extend the lifetime 
+    // of the object, shared_ptr is used and being captured in the async lambdas like
+    // async_read_some and async_write
     auto session_ptr = shared_from_this();
+    //ideally we should read the data length (header) first and then rest of the message
     socket_.async_read_some( buffer(receive_buffer_),
         [session_ptr](const boost::system::error_code& ec, size_t byte_size){
             if (!ec || ec == error::eof) {

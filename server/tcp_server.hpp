@@ -13,6 +13,7 @@
 class Tcp_Server {
 public:
 	Tcp_Server(boost::asio::io_context& io_context, int port);
+	//launches an async call to accept connections from server
 	void wait_for_connection();
 
 private:
