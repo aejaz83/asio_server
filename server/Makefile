@@ -1,5 +1,5 @@
 CC=g++
-CPPFLAGS=-I/home/aehjaj/boost_1_70_0 -std=c++14
+CPPFLAGS=-I/home/aehjaj/boost_1_70_0 -std=c++14 -Wall
 DEPS = tcp_server.hpp tcp_session.hpp
 OBJ = tcp_server.o tcp_session.o server_main.o
 LINKERFLAGS = -pthread

@@ -1,5 +1,5 @@
 CC=g++
-CPPFLAGS=-I/home/aehjaj/boost_1_70_0 -std=c++14
+CPPFLAGS=-I/home/aehjaj/boost_1_70_0 -std=c++14 -Wall
 DEPS = tcp_client.hpp parser.hpp
 OBJ = tcp_client.o client_main.o
 LINKERFLAGS = -pthread
