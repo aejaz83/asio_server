@@ -20,3 +20,7 @@ How to run
 	2. from another terminal run ./tcp_client localhost 9999
 
 
+Next Steps
+	1. Use conan to resolve dependencies
+	2. Use CMAKE
+	3. Modify tcp_session to read the header which has data length and then read entire packet and only afterwards send data.
