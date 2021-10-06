@@ -9,10 +9,11 @@
 int main(int argc, char const *argv[])
 {
 	try{
-		if(argc != 2){
-			std::cerr << "Usage: tcp_server <port>\n";
+	  if(argc != 2){
+		  std::cerr << "Usage: tcp_server <port>\n";
 			return 1;
 		}
+
 		std::stringstream ss(argv[1]);
 		int port;
 		if( ss >> port){
@@ -21,6 +22,7 @@ int main(int argc, char const *argv[])
 			std::cerr << "Invalid port specified, port is not an integer\n";
 			return 2;
 		}
+		
 		boost::asio::io_context io_context;
 		//create the main server object which accepts client connections
 		Tcp_Server server(io_context, port);

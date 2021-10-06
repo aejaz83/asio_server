@@ -15,7 +15,7 @@ Tcp_Server::Tcp_Server(io_context& io_context, int port)
 			: context_(io_context),
 			  acceptor_(io_context, ip::tcp::endpoint(ip::tcp::v4(),port)){
 
-		wait_for_connection();		
+  wait_for_connection();		
 }
 
 void Tcp_Server::wait_for_connection(){

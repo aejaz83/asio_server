@@ -15,7 +15,7 @@
 // enable_shared_from_this is used.
 class Tcp_Session : public std::enable_shared_from_this<Tcp_Session> {
 public:
-	Tcp_Session( boost::asio::io_context& );
+  Tcp_Session( boost::asio::io_context& );
 	boost::asio::ip::tcp::socket& get_socket();
 	//receive data from client
 	void wait_for_receive();
