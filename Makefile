@@ -6,7 +6,7 @@ ifeq ($(UNAME_S),Darwin)
   CC=clang++
 endif
 
-CPPFLAGS=-I/Users/aehjaj.ahmed/Desktop/c++/sdk/boost_1_70_0 -std=c++14 -Wall
+CPPFLAGS=-I/include_path_for_boost/boost_1_70_0 -std=c++14 -Wall
 
 all: tcp_client tcp_server	
 

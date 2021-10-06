@@ -4,6 +4,19 @@ Asynchronous apis and event mechanism of the boost asio is used.
 This code is built on :
     1. Ubuntu system running Linux kernel 4.13.0-46-generic.
     2. g++/gcc version 7.2.0 (Ubuntu 7.2.0-8ubuntu3.2)
-    3. boost Version 1.70.0
+    3. boost Version 1.70.0 (download from https://www.boost.org/users/history/version_1_70_0.html)
     4. GNU Make 4.1
+
+
+How to Build
+	1. replace the include path for boost_1.7 in CPPFLAGS of top level Makefile
+		CPPFLAGS=-I/include_path_for_boost/boost_1_70_0 -std=c++14 -Wall
+	2. run make all
+	3. run make clean to clean the project
+
+
+How to run
+	1. ./tcp_server 9999  <<<9999 is an unused port number>>
+	2. from another terminal run ./tcp_client localhost 9999
+
 
